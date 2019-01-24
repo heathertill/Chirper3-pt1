@@ -8,15 +8,34 @@ class App extends React.Component {
             posts: []
         }
     }
-    
+    componentDidMount() {
+        let posts = [
+            {
+                user: "Bill",
+                message: "hello"
+            },
+            {
+                user: "Sam",
+                message: "howdy"
+            }
+        ];
+        this.setState({ posts })
+    }
+
     render() {
         return(
-            <h1 className="text-primary m-5">Hello World!!</h1>
+            <div className="container">
+                <div className="row">
+                    {this.state.posts.unshift(post => {
+                        return <h1>{post.user}</h1>
+                    })}
+                </div>
+            </div>
         )
     }
 }
 
-
+//this.setState({ posts, user: "", message: "" })
 
 
 export default App
