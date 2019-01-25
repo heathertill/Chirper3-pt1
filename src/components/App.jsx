@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import ChirpCard from './ChirpCard';
 
 class App extends React.Component {
 
@@ -26,8 +27,8 @@ class App extends React.Component {
         return(
             <div className="container">
                 <div className="row">
-                    {this.state.posts.unshift(post => {
-                        return <h1>{post.user}</h1>
+                    {this.state.posts.map((post, index) => {
+                        return <ChirpCard key={ index } post={ post } />
                     })}
                 </div>
             </div>
