@@ -38,25 +38,22 @@ class App extends React.Component {
 
     render() {
         return(
-            <div className="container-fluid">
+            <div className="container">
                 <div className="row mt-3">
-                    <div className="col-5">
-                        <form className="form-group col-md-12 p-3 border border-dark rounded" onSubmit={(e) => this.handleSubmit(e)}>
-                        <label>Your Name</label>
-                        <input className="form-control" type="text" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
-                        <label>Your Message</label>
-                        <textarea className="form-control" type="text" rows="3" value={this.state.text} onChange={(e) => this.setState({ text: e.target.value })}></textarea>
-                        <button className="btn btn-primary m-3">Add Post</button>
-                        </form>
-                    </div>
-                    <div className="col-7">
+                    <form className="form-group col-md-12 p-3 border border-dark rounded" onSubmit={(e) => this.handleSubmit(e)}>
+                    <label>Your Name</label>
+                    <input className="form-control" type="text" value={this.state.name} onChange={(e) => this.setState({ name: e.target.value })} />
+                    <label>Your Message</label>
+                    <input className="form-control" type="text" value={this.state.text} onChange={(e) => this.setState({ text: e.target.value })} />
+                    <button className="btn btn-primary m-3">Add Post</button>
+                    </form>
+                </div>
+                
+                <div className="row">
                     {this.state.posts.map((post, index) => {
                         return <ChirpCard key={ index } post={ post } />
                     })}
                 </div>
-
-                </div>
-                
             </div>
         )
     }
