@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Chirper from './components/Chirper';
+import App from './components/App';
 
-ReactDOM.render(<Chirper />, document.getElementById('cats'));
+ReactDOM.render(<App />, document.getElementById('cats'));
 
 
 
