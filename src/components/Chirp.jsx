@@ -8,7 +8,8 @@ class Chirper extends React.Component {
         this.state = {
             posts: [],
             text: "",
-            name: ""
+            name: "",
+            clicks: 0
         }
     }
     componentDidMount() {
@@ -38,6 +39,7 @@ class Chirper extends React.Component {
         
     }
 
+
     render() {
         return(
             <div className="container-fluid">
@@ -54,7 +56,8 @@ class Chirper extends React.Component {
                     <div className="col-7">
                         {this.state.posts.map((post, index) => {
                         console.log('opps')
-                        return <ChirpCard key={ index } post={ post } />
+                            return <ChirpCard key={index} post={post} />
+                            
                     })}
                 </div>
 
