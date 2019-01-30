@@ -1,8 +1,9 @@
+
 import React from 'react';
 import Like from './Like'
 
 const ChirpCard = (props) => {
-const { user, message } = props.post
+const { user, message } = props.chirp
     return ( 
         <div>
             <div className="card border border-secondary rounded mb-1" >
@@ -30,6 +31,3 @@ const { user, message } = props.post
 }
 
 export default ChirpCard
-
-
-

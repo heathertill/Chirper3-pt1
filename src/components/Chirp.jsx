@@ -1,41 +1,45 @@
 import React from 'react';
 import ChirpCard from './ChirpCard';
 
+
 class Chirper extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            posts: [],
+            chirps: [],
             text: "",
             name: "",
-            clicks: 0
+            likes: 1
         }
     }
     componentDidMount() {
-        let posts = [
+        let chirps = [
             {
                 user: "Bill",
-                message: "hello"
+                message: "hello",
+                likes: 0
             },
             {
                 user: "Sam",
-                message: "howdy"
+                message: "howdy",
+                likes: 0
             }
         ];
-        this.setState({ posts })
+        this.setState({ chirps })
     }
 
     handleSubmit(e) {
         e.preventDefault();
-        let posts = this.state.posts;
-        let newPost = {
+        let chirps = this.state.chirps;
+        let newChirp = {
             user: this.state.name,
-            message: this.state.text
+            message: this.state.text,
+            
         }
         console.log('test')
-        posts.unshift(newPost);
-        this.setState({ posts, text: "", name: "" })
+        chirps.unshift(newChirp);
+        this.setState({ chirps, text: "", name: "" })
         
     }
 
@@ -54,11 +58,9 @@ class Chirper extends React.Component {
                         </form>
                     </div>
                     <div className="col-7">
-                        {this.state.posts.map((post, index) => {
-                        console.log('opps')
-                            return <ChirpCard key={index} post={post} />
-                            
-                    })}
+                        {this.state.chirps.map((chirp, index) => {
+                            return <ChirpCard key={index} chirp={chirp} />
+                        })}
                 </div>
 
                 </div>
@@ -73,7 +75,7 @@ class Chirper extends React.Component {
 
 
 
-//this.setState({ posts, user: "", message: "" })
+//this.setState({ chirps, user: "", message: "" })
 
 
 export default Chirper
