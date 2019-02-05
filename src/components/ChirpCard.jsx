@@ -26,8 +26,6 @@ const { user, message } = props.chirp
             </div>
         </div>          
     );
-
-
 }
 
 export default ChirpCard

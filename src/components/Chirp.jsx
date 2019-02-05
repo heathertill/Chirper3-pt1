@@ -1,19 +1,18 @@
 import React from 'react';
 import ChirpCard from './ChirpCard';
 
-
-
 class Chirper extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
             chirps: [],
-            text: "",
             name: "",
+            text: "",
             likes: 0
         }
     }
+
     componentDidMount() {
         let chirps = [
             {
@@ -29,7 +28,6 @@ class Chirper extends React.Component {
         ];
         this.setState({ chirps })
     }
-
     
     handleSubmit(e) {
         e.preventDefault();
@@ -37,23 +35,17 @@ class Chirper extends React.Component {
         let newChirp = {
             user: this.state.name,
             message: this.state.text,
-            
         }
         console.log('test')
         chirps.unshift(newChirp);
         this.setState({ chirps, text: "", name: "" })
-        
     }
 
     handleLikes() {
         let likes = this.state.likes;
         likes++;
         this.setState({ likes }, );
-        
-       
-
     }
-
 
     render() {
         return(
@@ -73,21 +65,11 @@ class Chirper extends React.Component {
                             return <ChirpCard key={index} chirp={chirp} chirpLikes={ {likes: this.state.likes,
                                 onClick: () => this.handleLikes()}} />
                         })}
+                    </div>
                 </div>
-
-                </div>
-                
             </div>
         )
     }
 }
-
-
-
-
-
-
-//this.setState({ chirps, user: "", message: "" })
-
 
 export default Chirper
