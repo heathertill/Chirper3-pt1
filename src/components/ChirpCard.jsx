@@ -19,7 +19,7 @@ const { user, message } = props.chirp
                 <div className="card-footer d-flex flex-row p-0" style={{ height: '30px' }}>
                     <div className="col-1">
                         <div>
-                            <Like />
+                            <Like chirpLikes={props.chirpLikes}/>
                         </div>
                     </div>
                 </div>

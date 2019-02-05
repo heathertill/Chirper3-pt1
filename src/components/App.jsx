@@ -1,7 +1,3 @@
-
-
-
-
 import React from 'react';
 import NavBar from './NavBar';
 import Chirp from './Chirp'

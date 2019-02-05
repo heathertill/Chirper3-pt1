@@ -11,7 +11,7 @@ class Chirper extends React.Component {
             chirps: [],
             text: "",
             name: "",
-            likes: 0
+            likes: 1
         }
     }
     componentDidMount() {
@@ -24,7 +24,7 @@ class Chirper extends React.Component {
             {
                 user: "Sam",
                 message: "howdy",
-                likes: 3
+                likes: 0
             }
         ];
         this.setState({ chirps })
@@ -45,15 +45,6 @@ class Chirper extends React.Component {
         
     }
 
-    handleLikes() {
-        let likes = this.state.likes;
-        likes++;
-        this.setState({ likes }, );
-        
-       
-
-    }
-
 
     render() {
         return(
@@ -70,8 +61,7 @@ class Chirper extends React.Component {
                     </div>
                     <div className="col-7">
                         {this.state.chirps.map((chirp, index) => {
-                            return <ChirpCard key={index} chirp={chirp} chirpLikes={ {likes: this.state.likes,
-                                onClick: () => this.handleLikes()}} />
+                            return <ChirpCard key={index} chirp={chirp} likes={0}/>
                         })}
                 </div>
 
@@ -85,9 +75,46 @@ class Chirper extends React.Component {
 
 
 
-
-
-//this.setState({ chirps, user: "", message: "" })
-
-
 export default Chirper
+
+
+///////
+
+
+import React from 'react'
+
+
+
+class Like extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            likes: this.props.chirp.likes
+        }
+    }
+
+    handleLikes() {
+        let likes = this.state.likes;
+        likes++;
+        this.setState({ likes })
+    }
+
+
+    render() {
+        return (
+            
+            <div className="likes d-flex">
+                <img className="d-flex align-items-center pt-2" style={{ height: 22, width: 22 }} onClick={() => this.handleLikes()} src="https://openclipart.org/download/135559/OCAL-Favorites-Icon-Unselected.svg" alt="placeholder" />
+                <h6 className="pt-1">{this.state.likes}</h6>
+            </div>
+
+
+        )
+    }
+}
+
+export default Like
+
+
+
+
